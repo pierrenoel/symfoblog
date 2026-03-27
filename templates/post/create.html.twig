@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add a post{% endblock %}
+
+{% block body %}
+    <div class="wrapper">
+        <h1>Add a post</h1>
+        <div>
+            {{ form_start(form,{'attr':{'class':'form'}} ) }}
+                <div class="form_row">
+                    {{ form_widget(form.title, {'attr': {'class':'input_text'}}) }}
+
+                    {% if(form.title.vars.errors | length) %}
+                        <div class="error_message">
+                            {{ form_errors(form.title) }}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+                <div class="form_row">
+                    {{ form_widget(form.content, {'attr': {'class':'input_text'}}) }}
+
+                      {% if(form.content.vars.errors | length) %}
+                        <div class="error_message">
+                            {{ form_errors(form.content) }}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+                  <div class="form_row">
+                     {{ form_row(form.save,{'attr':{'class':'btn_submit'}}) }}
+
+                </div>
+                 
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

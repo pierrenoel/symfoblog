@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add a post{% endblock %}
+
+{% block body %}
+    <div class="wrapper">
+        <h1>{{ post.title }}</h1>
+        <div>
+            <p>{{ post.content }}</p>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Posts{% endblock %}
+
+{% block body %}
+
+<div class="wrapper">
+    <h1>Hello There</h1>
+
+    <div class="grid">
+        {% for post in posts %}
+           <div class="post_card">
+                <div>
+                    <h2 class="post_title">{{ post.title }}</h2>
+                    <p>{{ post.createdAt | date('d/m/y H:s') }}</p>
+                    <p class="post_content">{{ post.content | u.truncate(100,'...')}}</p>
+                </div>
+                <div class="post_actions">
+                    <a href="{{ path('app_post_show',{'id': post.id}) }}" class="post_btn">Read</a>
+                    <a href="{{ path('app_post_edit',{'id': post.id}) }}" class="post_btn">Edit</a>
+                    <a href="{{ path('app_post_delete',{'id': post.id}) }}" class="post_btn">remove</a>
+                </div>
+                </div>
+        {% endfor %}
+    </div>
+
+    <hr />
+    <h2>Categories</h2>
+        {% for category in categories %}
+        {{ category.name }}
+    {% endfor %}
+   
+
+</div>
+{% endblock %}

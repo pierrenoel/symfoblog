@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add a category{% endblock %}
+
+{% block body %}
+    <div class="wrapper">
+        <h1>Add a category</h1>
+        {{ form_start(form, {'attr':{'class':'form'}}) }}
+            <div class="form_row">
+                {{ form_widget(form.name,{'attr':{'class':'input_text'}}) }}
+            </div>
+            <div class="form_row">
+                {{ form_widget(form.save,{'attr':{'class':'btn_submit'}}) }}
+            </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
